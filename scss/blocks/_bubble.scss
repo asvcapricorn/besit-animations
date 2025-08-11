@@ -1,0 +1,360 @@
+.bubble {
+  position: absolute;
+  width: 334px;
+  $root: &;
+  transform: translate(0, 0);
+
+  &:hover {
+
+    &:has(img) {
+      #{$root}__img {
+        animation: smileHover 1s ease-in forwards 0.3s;
+      }
+    }
+  }
+
+  &--blue {
+    color: $color-catalina-blue;
+    left: 598px;
+    top: 95px;
+
+    &:hover {
+
+      #{$root}__text {
+        background: linear-gradient($color-black-pearl-2, $color-bossanova);
+        overflow: hidden;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          right: -20%;
+          left: -20%;
+          height: 150%;
+          background:
+            radial-gradient(1px 6px, #ccc 100%, transparent 100%) -12px 3px,
+            radial-gradient(1px 6px, #ccc 100%, transparent 100%) 17px 0,
+            radial-gradient(1px 6px, #ccc 100%, transparent 100%) 6px 12px,
+            radial-gradient(1px 6px, #ccc 100%, transparent 100%) 24px 23px,
+            radial-gradient(1px 6px, #ccc 100%, transparent 100%) 39px 30px,
+            radial-gradient(1px 6px, #ccc 100%, transparent 100%) 5px 43px;
+          animation: rain 0.5s linear infinite;
+          background-size: 70px 70px;
+          transform: skew(-7deg);
+        }
+      }
+    }
+  }
+
+  &--purple {
+    color: $color-palatinate-purple;
+    right: 24px;
+    top: 230px;
+    width: 297px;
+
+    #{$root}__text {
+      background-color: $color-palatinate-purple;
+    }
+
+    &:hover {
+
+      #{$root}__cauldron {
+        opacity: 1;
+      }
+    }
+  }
+
+  &--green {
+    bottom: 264px;
+    color: $color-spectra;
+    right: 0;
+    width: 283px;
+
+    #{$root}__text {
+      background-color: $color-spectra;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 60%;
+      top: -25px;
+      transform: translateY(25px);
+      width: 0;
+      height: 0;
+      border-top: 28px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 20px solid $color-rob-roy;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 70%;
+      top: -25px;
+      transform: translateY(25px);
+      width: 0;
+      height: 0;
+      border-top: 28px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid $color-rob-roy;
+    }
+
+    &:hover {
+
+      &::before,
+      &::after {
+        animation: ears 2s forwards;
+      }
+    }
+  }
+
+  &--red {
+    bottom: 62px;
+    color: $color-pompadour;
+    right: 212px;
+    width: 363px;
+
+    #{$root}__text {
+      background-color: $color-pompadour;
+    }
+
+    &:hover {
+      animation: bug-shatter 0.2s infinite;
+    }
+  }
+
+  &--violet {
+    bottom: 87px;
+    color: $color-scarlet-gum;
+    left: 141px;
+    width: 423px;
+
+    #{$root}__text {
+      background-color: $color-scarlet-gum;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-white;
+        opacity: 0;
+      }
+    }
+
+    &:hover {
+      #{$root}__text {
+        &::before {
+          animation: flash 0.3s ease-in forwards 2;
+        }
+      }
+    }
+  }
+
+  &--brown {
+    bottom: 312px;
+    color: $color--rish-coffee;
+    left: 0;
+    width: 303px;
+    overflow: hidden;
+
+    #{$root}__text {
+      background-color: $color--rish-coffee;
+    }
+
+    &::before {
+      content: "х Error";
+      position: absolute;
+      right: 0;
+      top: 80%;
+      transform: translate(100%, -50%) rotate(-20deg) scale(50);
+      color: red;
+      font-size: 26px;
+      line-height: 24px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity $transition-500, transform $transition-500;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(-30deg) scale(1);
+      }
+    }
+  }
+
+  &--woodland {
+    color: $color-woodland;
+    left: 63px;
+    top: 157px;
+    width: 363px;
+
+    #{$root}__text {
+      background-color: $color-woodland;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      background-color: $color-figma-ruler;
+      width: 40px;
+      height: 2px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity $transition-300;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 40px;
+      top: 50%;
+      transform: translate(0, -50%);
+      background-color: $color-figma-line;
+      width: 2px;
+      height: 72px;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity $transition-300;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+        animation: figmaRuler 3s linear 0.3s infinite;
+      }
+
+      &::after {
+        opacity: 1;
+        animation: figmaLine 3s linear 0.3s infinite;
+      }
+
+      #{$root}__text {
+        animation: padding 3s linear 0.3s infinite;
+      }
+    }
+  }
+
+  &__text {
+    background-color: $color-catalina-blue;
+    border-radius: 40px;
+    color: $color-white-70;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+    padding: 32px 40px;
+    position: relative;
+    z-index: 1;
+    transition: transform $transition-300;
+  }
+
+  &__tail {
+    bottom: 0;
+    left: -17px;
+    pointer-events: none;
+    position: absolute;
+    transform: translateY(0);
+    transition: transform $transition-300;
+
+    &--right {
+      bottom: 0;
+      left: auto;
+      pointer-events: none;
+      position: absolute;
+      right: -17px;
+    }
+  }
+
+  &__img {
+    left: -100px;
+    position: absolute;
+    top: -55px;
+    z-index: 0;
+    transform: scale(1) rotate(0);
+
+    &--right {
+      left: auto;
+      position: absolute;
+      right: -114px;
+      top: -45px;
+      z-index: 0;
+    }
+  }
+
+  &__cauldron {
+    opacity: 0;
+    border: 1px solid $color-black;
+    width: 60px;
+    height: 30px;
+    border-radius: 0 0 100% 100%;
+    position: absolute;
+    left: 228px;
+    bottom: 5px;
+    z-index: 10;
+    background: linear-gradient(to top, $color-black-pearl-3, $color-tarawera, $color-arapawa);
+    transition: opacity $transition-300;
+  }
+
+  &__cauldron-top {
+    width: 60px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    bottom: 24px;
+    right: -1px;
+    border: 1px solid $color-black;
+    background-image: radial-gradient(circle, $color-yellow, $color-orange, $color-black);
+    box-shadow: 0px -35px 77px 41px $color-dark-orange;
+  }
+
+  &__fire {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: -68px;
+    right: -2px;
+  }
+
+  &__fire-red {
+    background-color: $color-orange-red;
+    background-image: linear-gradient(315deg, $color-orange-red 0%, $color-rust 74%);
+    position: absolute;
+    height: 70px;
+    width: 60px;
+    clip-path: polygon(55% 34%, 79% 57%, 95% 78%, 79% 100%, 21% 100%, 9% 78%, 23% 57%);
+    animation: pulse1 0.5s infinite;
+    box-shadow: -9px -52px 72px 21px rgba(255, 203, 47, 0.37);
+  }
+
+  &__fire-orange {
+    bottom: -10px;
+    background-color: $color-turbo;
+    background-image: linear-gradient(315deg, $color-turbo 0%, $color-orange-red-2 74%);
+    position: absolute;
+    height: 50px;
+    width: 60px;
+    clip-path: polygon(41% 45%, 65% 65%, 78% 80%, 70% 100%, 27% 100%, 14% 78%, 25% 65%);
+    animation: pulse2 0.3s infinite;
+  }
+
+  &__fire-yellow {
+    bottom: -10px;
+    position: absolute;
+    background-color: $color-outrageous-orange;
+    background-image: linear-gradient(315deg, $color-outrageous-orange 0%, $color-sunglow 74%);
+    height: 40px;
+    width: 60px;
+    clip-path: polygon(81% 56%, 80% 73%, 80% 88%, 64% 100%, 36% 100%, 27% 83%, 37% 71%);
+    animation: pulse3 1s infinite;
+  }
+}

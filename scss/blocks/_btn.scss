@@ -1,0 +1,54 @@
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  font-size: 22px;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 32px;
+  color: $color-black;
+  background-color: $color-light-green;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color $transition-300;
+
+  &[disabled] {
+    color: rgba(0, 0, 0, 0.4);
+    background-color: $color-white;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-light-green;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path $transition-300;
+  }
+
+  .form-order--success & {
+    &::before {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-pastel-green;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    pointer-events: none;
+  }
+}

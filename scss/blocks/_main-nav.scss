@@ -1,0 +1,61 @@
+.main-nav {
+    pointer-events: none;
+    border-radius: 50%;
+    border: 2px solid $color-black;
+    position: fixed;
+    right: 38px;
+    top: 75px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    opacity: 0;
+    background-color: $color-light-green;
+    transition: top $transition-300 0.5s,
+        right $transition-300 0.5s,
+        border-radius $transition-300 0.5s,
+        width $transition-300 0.5s,
+        height $transition-300 0.5s,
+        opacity $transition-300 0.5s,
+        padding $transition-300 0.5s;
+
+    .header--open & {
+        pointer-events: all;
+        right: 27px;
+        top: 18px;
+        border-radius: 16px;
+        width: 260px;
+        height: 200px;
+        padding: 50px 38px 38px;
+        opacity: 1;
+        transition: top $transition-300,
+            right $transition-300,
+            border-radius $transition-300,
+            width $transition-300,
+            height $transition-300,
+            opacity $transition-300,
+            padding $transition-300;
+
+        &__link {
+            opacity: 1;
+            transition: opacity $transition-300 0.5s;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+    }
+
+    &__link {
+        opacity: 0;
+        color: $color-black;
+        transition: opacity $transition-300;
+    }
+}
